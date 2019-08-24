@@ -9,9 +9,17 @@
       ],
       "extensions": "md,hbs",
       "quiet": false
+    },
+    "styles": {
+      "patterns": [
+        "src/*"
+      ],
+      "extensions": "styl",
+      "quiet": false
     }
   },
   "scripts": {
+    "styles": "stylus -w src/styles/index.styl -o dist/styles/style.css",
     "build": "hymark src dist --engine=handlebars --templates=src/_templates",
     "watch": "npm-watch"
   },
