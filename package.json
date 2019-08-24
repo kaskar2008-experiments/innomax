@@ -19,7 +19,7 @@
     }
   },
   "scripts": {
-    "styles": "stylus -w src/styles/index.styl -o dist/styles/style.css",
+    "styles": "stylus src/styles/index.styl -o dist/styles/style.css -c",
     "build": "hymark src dist --engine=handlebars --templates=src/_templates",
     "watch": "npm-watch"
   },
