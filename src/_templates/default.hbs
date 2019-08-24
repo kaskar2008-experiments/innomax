@@ -7,31 +7,33 @@
   <title>{{title}}</title>
 </head>
 <body>
-  <h1>{{h1}}</h1>
-  {{#each lists as |list|}}
-    <table>
-      {{#if list.subtitle}}
-      <thead>
-        <tr>
-          <th colspan="100%">{{list.subtitle}}</th>
-        </tr>
-      </thead>
-      {{/if}}
-      <tbody>
-      {{#each list.items as |listItem|}}
-        <tr>
-          <td>
-            <div class="title">{{listItem.name}}</div>
-            <div class="includes">
-              ({{#each listItem.includes}}{{this}}{{#unless @last}}, {{/unless}}{{/each}})
-            </div>
-          </td>
-          <td>{{listItem.weight}} гр</td>
-          <td>{{listItem.price}}₽</td>
-        </tr>
-      {{/each}}
-      </tbody>
-    </table>
+  {{#each categories as |category|}}
+    <h1>{{category.name}}</h1>
+    {{#each category.lists as |list|}}
+      <table>
+        {{#if list.subtitle}}
+        <thead>
+          <tr>
+            <th colspan="100%">{{list.subtitle}}</th>
+          </tr>
+        </thead>
+        {{/if}}
+        <tbody>
+        {{#each list.items as |listItem|}}
+          <tr>
+            <td>
+              <div class="title">{{listItem.name}}</div>
+              <div class="includes">
+                ({{#each listItem.includes}}{{this}}{{#unless @last}}, {{/unless}}{{/each}})
+              </div>
+            </td>
+            <td>{{listItem.weight}} гр</td>
+            <td>{{listItem.price}}₽</td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    {{/each}}
   {{/each}}
 </body>
 </html>
