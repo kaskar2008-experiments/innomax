@@ -8,7 +8,12 @@
 </head>
 <body>
   {{#each categories as |category|}}
+    {{#if category.name}}
     <h1>{{category.name}}</h1>
+    {{/if}}
+    {{#if category.description}}
+    <p>{{category.description}}</p>
+    {{/if}}
     {{#each category.lists as |list|}}
       <table>
         {{#if list.subtitle}}
