@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
   <title>{{title}}</title>
 </head>
 <body>
+  {{#if categories}}
   {{#each categories as |category|}}
     {{#if category.name}}
     <h1>{{category.name}}</h1>
@@ -15,6 +17,7 @@
     {{#if category.description}}
     <p>{{category.description}}</p>
     {{/if}}
+    {{#if category.lists}}
     {{#each category.lists as |list|}}
       <table>
         {{#if list.subtitle}}
@@ -25,21 +28,31 @@
         </thead>
         {{/if}}
         <tbody>
+        {{#if list.items}}
         {{#each list.items as |listItem|}}
           <tr>
             <td>
               <div class="title">{{listItem.name}}</div>
+              {{#if listItem.includes}}
               <div class="includes">
                 ({{#each listItem.includes}}{{this}}{{#unless @last}}, {{/unless}}{{/each}})
               </div>
+              {{/if}}
             </td>
+            {{#if listItem.weight}}
             <td>{{listItem.weight}} гр</td>
+            {{/if}}
+            {{#if listItem.price}}
             <td>{{listItem.price}}₽</td>
+            {{/if}}
           </tr>
         {{/each}}
+        {{/if}}
         </tbody>
       </table>
     {{/each}}
+    {{/if}}
   {{/each}}
+  {{/if}}
 </body>
 </html>
