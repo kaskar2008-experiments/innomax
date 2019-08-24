@@ -11,7 +11,7 @@
   {{#each list as |listItem|}}
     <tr>
       <td>
-        <div class="title">Пицца "{{listItem.name}}"</div>
+        <div class="title">{{listItem.name}}</div>
         <div class="includes">
           ({{#each listItem.includes}}{{this}}{{#unless @last}}, {{/unless}}{{/each}})
         </div>
