@@ -11,47 +11,49 @@
 <body>
   {{#if categories}}
   {{#each categories as |category|}}
-    {{#if category.name}}
-    <h1>{{category.name}}</h1>
-    {{/if}}
-    {{#if category.description}}
-    <p>{{category.description}}</p>
-    {{/if}}
-    {{#if category.lists}}
-    {{#each category.lists as |list|}}
-      <table>
-        {{#if list.subtitle}}
-        <thead>
-          <tr>
-            <th colspan="100%">{{list.subtitle}}</th>
-          </tr>
-        </thead>
-        {{/if}}
-        <tbody>
-        {{#if list.items}}
-        {{#each list.items as |listItem|}}
-          <tr>
-            <td>
-              <div class="title">{{listItem.name}}</div>
-              {{#if listItem.includes}}
-              <div class="includes">
-                ({{#each listItem.includes}}{{this}}{{#unless @last}}, {{/unless}}{{/each}})
-              </div>
+    <div class="category">
+      {{#if category.name}}
+      <h1>{{category.name}}</h1>
+      {{/if}}
+      {{#if category.description}}
+      <p class="category-description">{{category.description}}</p>
+      {{/if}}
+      {{#if category.lists}}
+      {{#each category.lists as |list|}}
+        <table>
+          {{#if list.subtitle}}
+          <thead>
+            <tr>
+              <th colspan="100%">{{list.subtitle}}</th>
+            </tr>
+          </thead>
+          {{/if}}
+          <tbody>
+          {{#if list.items}}
+          {{#each list.items as |listItem|}}
+            <tr>
+              <td>
+                <div class="title">{{listItem.name}}</div>
+                {{#if listItem.includes}}
+                <div class="includes">
+                  ({{#each listItem.includes}}{{this}}{{#unless @last}}, {{/unless}}{{/each}})
+                </div>
+                {{/if}}
+              </td>
+              {{#if listItem.weight}}
+              <td class="item-weight">{{listItem.weight}} гр</td>
               {{/if}}
-            </td>
-            {{#if listItem.weight}}
-            <td>{{listItem.weight}} гр</td>
-            {{/if}}
-            {{#if listItem.price}}
-            <td>{{listItem.price}}₽</td>
-            {{/if}}
-          </tr>
-        {{/each}}
-        {{/if}}
-        </tbody>
-      </table>
-    {{/each}}
-    {{/if}}
+              {{#if listItem.price}}
+              <td class="item-price">{{listItem.price}}₽</td>
+              {{/if}}
+            </tr>
+          {{/each}}
+          {{/if}}
+          </tbody>
+        </table>
+      {{/each}}
+      {{/if}}
+    </div>
   {{/each}}
   {{/if}}
 </body>
