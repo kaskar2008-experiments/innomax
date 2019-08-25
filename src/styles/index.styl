@@ -1,0 +1,48 @@
+@import 'normalize'
+
+body
+  font-family Open Sans
+  padding 16px
+
+.category
+  h1,
+  .category-description
+    text-align center
+  
+  .category-description
+    margin-top -18px
+  
+  .title
+    font-size 26px
+  .includes
+    margin-top 6px
+
+table
+  width 100%
+  max-width 600px
+  margin 0 auto
+
+  &:not(:last-of-type)
+    margin-bottom 16px
+
+  thead
+    text-align left
+    th
+      font-size 20px
+      border-bottom 1px solid #000
+      padding-bottom 6px
+  
+  td
+    padding 8px
+
+    &:last-child
+      padding-right 0
+    &:first-child
+      padding-left 0
+
+
+    &.item-weight,
+    &.item-price
+      vertical-align top
+      font-size 26px
+      white-space nowrap
